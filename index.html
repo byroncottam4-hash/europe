@@ -135,15 +135,20 @@
     /* ---------- FORM SECTION (LIGHT MODE) ---------- */
     .section {
       padding: 90px 20px;
-      background: #f7f7f5; /* off-white */
+      background: #f7f7f5;
       display: grid;
       place-items: center;
       color: #111;
     }
 
-    .card {
+    .cardWrap {
       width: 100%;
       max-width: 720px;
+      position: relative;
+    }
+
+    .card {
+      width: 100%;
       background: #ffffff;
       border: 1px solid rgba(0,0,0,0.10);
       border-radius: 16px;
@@ -183,7 +188,7 @@
       margin-bottom: 8px;
     }
 
-    input, textarea, select {
+    input, textarea {
       width: 100%;
       padding: 12px 12px;
       border-radius: 12px;
@@ -194,13 +199,13 @@
       transition: border-color 0.2s ease, background 0.2s ease;
     }
 
-    input:focus, textarea:focus, select:focus {
+    input:focus, textarea:focus {
       border-color: rgba(0,0,0,0.40);
       background: #ffffff;
     }
 
     textarea {
-      min-height: 140px;
+      min-height: 160px;
       resize: vertical;
     }
 
@@ -236,6 +241,15 @@
       line-height: 1.5;
     }
 
+    /* Disclaimer bottom-right under the form */
+    .disclaimer {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: rgba(0,0,0,0.50);
+      text-align: left;
+    }
+
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -261,56 +275,60 @@
         Quick guides for airports, transport, and local spots — built for people who just want the right info fast.
       </p>
 
-      <a class="btn" href="#form"><span>Fill Out Form</span></a>
+      <a class="btn" href="#form"><span>Explore Strategic Partnership</span></a>
     </div>
   </section>
 
   <section class="section" id="form">
-    <div class="card">
-      <h2>Fill out the form</h2>
-      <p class="sub">Leave your details and we’ll get back to you.</p>
+    <div class="cardWrap">
+      <div class="card">
+        <h2>Explore strategic partnership</h2>
+        <p class="sub">Leave your details and we’ll get back to you.</p>
 
-      <form name="europe-leads" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="europe-leads" />
+        <!-- Netlify Forms (stored in Netlify, no email receipts unless you add notifications in Netlify) -->
+        <form name="europe-leads" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="europe-leads" />
 
-        <div class="grid">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
+          <!-- Honeypot field (spam trap). Keep hidden. -->
+          <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <!-- Netlify reCAPTCHA (turn on reCAPTCHA in Netlify UI after deploy) -->
+          <div class="full" data-netlify-recaptcha="true"></div>
+
+          <div class="grid" style="margin-top:14px;">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="full">
+              <label for="linkedin">LinkedIn (optional)</label>
+              <input id="linkedin" name="linkedin" type="url" inputmode="url" placeholder="https://www.linkedin.com/in/..." />
+            </div>
+
+            <div class="full">
+              <label for="details">Further details</label>
+              <textarea id="details" name="details" required></textarea>
+            </div>
           </div>
 
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
+          <div class="submitRow">
+            <button class="submitBtn" type="submit">Submit</button>
           </div>
+        </form>
+      </div>
 
-          <div>
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" />
-          </div>
-
-          <div>
-            <label for="topic">Topic</label>
-            <select id="topic" name="topic" required>
-              <option value="" disabled selected>Select one</option>
-              <option>Airport info</option>
-              <option>Attractions</option>
-              <option>Transport</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="full">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-        </div>
-
-        <div class="submitRow">
-          <button class="submitBtn" type="submit">Submit</button>
-          <div class="fineprint">No spam. Just a reply.</div>
-        </div>
-      </form>
+      <div class="disclaimer">
+        Europe.ie is an independent commercial platform and is not affiliated<br />
+        with, endorsed by, or representing the European Union, Irish Government, or any EU institution.
+      </div>
     </div>
   </section>
 </body>
