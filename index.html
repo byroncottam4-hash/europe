@@ -14,9 +14,10 @@
     }
 
     html { scroll-behavior: smooth; }
+
     body { min-height: 100vh; background: #fff; }
 
-    /* ---------- HERO ---------- */
+    /* ---------- HERO (UNCHANGED) ---------- */
     .hero {
       height: 100vh;
       position: relative;
@@ -60,7 +61,7 @@
     .content {
       position: relative;
       z-index: 3;
-      text-align: centre;
+      text-align: center;
       color: #fff;
       max-width: 760px;
       padding: 0 20px;
@@ -83,8 +84,8 @@
     .btn {
       position: relative;
       display: inline-flex;
-      align-items: centre;
-      justify-content: centre;
+      align-items: center;
+      justify-content: center;
       padding: 14px 28px;
       border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.35);
@@ -93,14 +94,14 @@
       text-decoration: none;
       font-weight: 500;
       overflow: hidden;
-      transition: transform 0.2s ease, border-colour 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      border-colour: rgba(255,255,255,0.6);
+      border-color: rgba(255,255,255,0.6);
     }
 
     .btn::before {
@@ -124,20 +125,20 @@
     .btn span {
       position: relative;
       z-index: 1;
-      transition: colour 0.55s ease;
+      transition: color 0.55s ease;
     }
 
     .btn:hover span {
-      colour: #111;
+      color: #111;
     }
 
-    /* ---------- FORM SECTION (LIGHT MODE) ---------- */
+    /* ---------- FORM SECTION ---------- */
     .section {
       padding: 90px 20px;
       background: #f7f7f5;
       display: grid;
-      place-items: centre;
-      colour: #111;
+      place-items: center;
+      color: #111;
     }
 
     .cardWrap {
@@ -160,12 +161,11 @@
       font-weight: 650;
       letter-spacing: -0.01em;
       margin-bottom: 10px;
-      colour: #0f0f10;
-      text-transform: none;
+      color: #0f0f10;
     }
 
     .card .sub {
-      colour: rgba(0,0,0,0.65);
+      color: rgba(0,0,0,0.65);
       line-height: 1.6;
       margin-bottom: 22px;
     }
@@ -184,7 +184,7 @@
     label {
       display: block;
       font-size: 0.9rem;
-      colour: rgba(0,0,0,0.72);
+      color: rgba(0,0,0,0.72);
       margin-bottom: 8px;
     }
 
@@ -194,13 +194,13 @@
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.14);
       background: #fbfbfa;
-      colour: #111;
+      color: #111;
       outline: none;
-      transition: border-colour 0.2s ease, background 0.2s ease;
+      transition: border-color 0.2s ease, background 0.2s ease;
     }
 
     input:focus, textarea:focus {
-      border-colour: rgba(0,0,0,0.40);
+      border-color: rgba(0,0,0,0.40);
       background: #ffffff;
     }
 
@@ -211,16 +211,10 @@
 
     .full { grid-column: 1 / -1; }
 
-    .captchaRow {
-      margin-top: 16px;
-      display: flex;
-      justify-content: flex-start;
-    }
-
     .submitRow {
       display: flex;
       gap: 12px;
-      align-items: centre;
+      align-items: center;
       margin-top: 16px;
       flex-wrap: wrap;
     }
@@ -230,7 +224,7 @@
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.16);
       background: #111;
-      colour: #fff;
+      color: #fff;
       cursor: pointer;
       font-weight: 550;
       transition: transform 0.2s ease, opacity 0.2s ease;
@@ -243,7 +237,7 @@
 
     .fineprint {
       font-size: 0.9rem;
-      colour: rgba(0,0,0,0.55);
+      color: rgba(0,0,0,0.55);
       line-height: 1.5;
     }
 
@@ -251,52 +245,34 @@
       margin-top: 14px;
       font-size: 0.85rem;
       line-height: 1.45;
-      colour: rgba(0,0,0,0.50);
-      text-align: left;
+      color: rgba(0,0,0,0.50);
+      text-align: right;
     }
 
-    /* ---------- THANK YOU PAGE ---------- */
-    .thanksPage {
-      min-height: 100vh;
-      background: #f7f7f5;
-      display: grid;
-      place-items: centre;
-      padding: 24px;
+    /* Success Message Styles (Hidden by default) */
+    #success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
     }
-
-    .thanksCard {
-      width: 100%;
-      max-width: 720px;
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.10);
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
-
-    .thanksCard h1 {
+    #success-message h3 {
       font-size: 1.8rem;
-      margin-bottom: 10px;
-      colour: #0f0f10;
-      letter-spacing: -0.01em;
+      margin-bottom: 15px;
+      color: #111;
+    }
+    #success-message p {
+      font-size: 1.1rem;
+      color: rgba(0,0,0,0.7);
     }
 
-    .thanksCard p {
-      colour: rgba(0,0,0,0.65);
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-
-    .thanksCard a {
-      colour: #111;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(0,0,0,0.25);
-      padding-bottom: 2px;
+    /* Utility to hide the form when submitted */
+    .hidden {
+      display: none !important;
     }
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behaviour: auto; }
+      html { scroll-behavior: auto; }
       .bg { animation: none; opacity: 1; transform: none; }
       .btn, .btn::before, .btn span, .submitBtn { transition: none; }
     }
@@ -326,92 +302,88 @@
   <section class="section" id="form">
     <div class="cardWrap">
       <div class="card">
-        <h2>Explore strategic partnership</h2>
-        <p class="sub">Leave your details and we’ll get back to you.</p>
+        
+        <div id="success-message">
+           <h3>Thank you!</h3>
+           <p>Your details have been submitted successfully. We will be in touch shortly.</p>
+        </div>
 
-        <!-- Netlify Forms (stored in Netlify). -->
-        <form
-          name="europe-leads"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          action="/thanks.html"
-        >
-          <input type="hidden" name="form-name" value="europe-leads" />
+        <div id="form-container">
+          <h2>Explore strategic partnership</h2>
+          <p class="sub">Leave your details and we’ll get back to you.</p>
 
-          <!-- Honeypot field (spam trap). Keep hidden. -->
-          <p style="display:none;">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
-          </p>
+          <form id="lead-form" name="europe-leads" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+            <input type="hidden" name="form-name" value="europe-leads" />
 
-          <div class="grid">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
+            <p style="display:none;">
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <div class="grid" style="margin-top:14px;">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="full">
+                <label for="linkedin">LinkedIn (optional)</label>
+                <input id="linkedin" name="linkedin" type="url" inputmode="url" placeholder="https://www.linkedin.com/in/..." />
+              </div>
+
+              <div class="full">
+                <label for="details">Further details</label>
+                <textarea id="details" name="details" required></textarea>
+              </div>
+
+              <div class="full" data-netlify-recaptcha="true"></div>
             </div>
 
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
+            <div class="submitRow">
+              <button class="submitBtn" type="submit">Submit</button>
+              <div class="fineprint">Submissions are stored in Netlify.</div>
             </div>
-
-            <div class="full">
-              <label for="linkedin">LinkedIn (optional)</label>
-              <input
-                id="linkedin"
-                name="linkedin"
-                type="url"
-                inputmode="url"
-                placeholder="https://www.linkedin.com/in/..."
-              />
-            </div>
-
-            <div class="full">
-              <label for="details">Further details</label>
-              <textarea id="details" name="details" required></textarea>
-            </div>
-          </div>
-
-          <!-- CAPTCHA moved to just before submit -->
-          <div class="captchaRow">
-            <div data-netlify-recaptcha="true"></div>
-          </div>
-
-          <div class="submitRow">
-            <button class="submitBtn" type="submit">Submit</button>
-            <div class="fineprint">Submissions are stored in Netlify.</div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
 
       <div class="disclaimer">
-        Europe.ie is an independent commercial platform and is not affiliated
-        with, endorsed by, or representing the European Union, Irish Government, or any EU institution.
+        Europe.ie is an independent commercial platform and is not affiliated<br />
+        with, endorsed by, or representing the European Union, Irish Government,<br />
+        or any EU institution.
       </div>
     </div>
   </section>
 
-  <!--
-    Create a separate thanks.html file in your repo root with this content:
+  <script>
+    const form = document.getElementById("lead-form");
+    const formContainer = document.getElementById("form-container");
+    const successMessage = document.getElementById("success-message");
 
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Thanks</title>
-      <style> ... (or reuse the thanksPage styles above) ... </style>
-    </head>
-    <body>
-      <div class="thanksPage">
-        <div class="thanksCard">
-          <h1>Thanks — received.</h1>
-          <p>Your submission has been sent. We’ll be in touch.</p>
-          <a href="/index.html">Back to site</a>
-        </div>
-      </div>
-    </body>
-    </html>
-  -->
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+      .then(() => {
+        // Hide the form and show the success message
+        formContainer.classList.add("hidden");
+        successMessage.style.display = "block";
+      })
+      .catch((error) => {
+        alert("Oops! There was a problem submitting your form.");
+        console.error(error);
+      });
+    });
+  </script>
 </body>
 </html>
