@@ -14,10 +14,9 @@
     }
 
     html { scroll-behavior: smooth; }
-
     body { min-height: 100vh; background: #fff; }
 
-    /* ---------- HERO (UNCHANGED) ---------- */
+    /* ---------- HERO ---------- */
     .hero {
       height: 100vh;
       position: relative;
@@ -61,7 +60,7 @@
     .content {
       position: relative;
       z-index: 3;
-      text-align: center;
+      text-align: centre;
       color: #fff;
       max-width: 760px;
       padding: 0 20px;
@@ -84,8 +83,8 @@
     .btn {
       position: relative;
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      align-items: centre;
+      justify-content: centre;
       padding: 14px 28px;
       border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.35);
@@ -94,14 +93,14 @@
       text-decoration: none;
       font-weight: 500;
       overflow: hidden;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, border-colour 0.2s ease;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.6);
+      border-colour: rgba(255,255,255,0.6);
     }
 
     .btn::before {
@@ -125,11 +124,11 @@
     .btn span {
       position: relative;
       z-index: 1;
-      transition: color 0.55s ease;
+      transition: colour 0.55s ease;
     }
 
     .btn:hover span {
-      color: #111;
+      colour: #111;
     }
 
     /* ---------- FORM SECTION (LIGHT MODE) ---------- */
@@ -137,8 +136,8 @@
       padding: 90px 20px;
       background: #f7f7f5;
       display: grid;
-      place-items: center;
-      color: #111;
+      place-items: centre;
+      colour: #111;
     }
 
     .cardWrap {
@@ -161,11 +160,12 @@
       font-weight: 650;
       letter-spacing: -0.01em;
       margin-bottom: 10px;
-      color: #0f0f10;
+      colour: #0f0f10;
+      text-transform: none;
     }
 
     .card .sub {
-      color: rgba(0,0,0,0.65);
+      colour: rgba(0,0,0,0.65);
       line-height: 1.6;
       margin-bottom: 22px;
     }
@@ -184,7 +184,7 @@
     label {
       display: block;
       font-size: 0.9rem;
-      color: rgba(0,0,0,0.72);
+      colour: rgba(0,0,0,0.72);
       margin-bottom: 8px;
     }
 
@@ -194,13 +194,13 @@
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.14);
       background: #fbfbfa;
-      color: #111;
+      colour: #111;
       outline: none;
-      transition: border-color 0.2s ease, background 0.2s ease;
+      transition: border-colour 0.2s ease, background 0.2s ease;
     }
 
     input:focus, textarea:focus {
-      border-color: rgba(0,0,0,0.40);
+      border-colour: rgba(0,0,0,0.40);
       background: #ffffff;
     }
 
@@ -211,10 +211,16 @@
 
     .full { grid-column: 1 / -1; }
 
+    .captchaRow {
+      margin-top: 16px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
     .submitRow {
       display: flex;
       gap: 12px;
-      align-items: center;
+      align-items: centre;
       margin-top: 16px;
       flex-wrap: wrap;
     }
@@ -224,7 +230,7 @@
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.16);
       background: #111;
-      color: #fff;
+      colour: #fff;
       cursor: pointer;
       font-weight: 550;
       transition: transform 0.2s ease, opacity 0.2s ease;
@@ -237,22 +243,60 @@
 
     .fineprint {
       font-size: 0.9rem;
-      color: rgba(0,0,0,0.55);
+      colour: rgba(0,0,0,0.55);
       line-height: 1.5;
     }
 
-    /* Disclaimer bottom-right under the form */
     .disclaimer {
       margin-top: 14px;
       font-size: 0.85rem;
       line-height: 1.45;
-      color: rgba(0,0,0,0.50);
+      colour: rgba(0,0,0,0.50);
       text-align: left;
+    }
+
+    /* ---------- THANK YOU PAGE ---------- */
+    .thanksPage {
+      min-height: 100vh;
+      background: #f7f7f5;
+      display: grid;
+      place-items: centre;
+      padding: 24px;
+    }
+
+    .thanksCard {
+      width: 100%;
+      max-width: 720px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .thanksCard h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      colour: #0f0f10;
+      letter-spacing: -0.01em;
+    }
+
+    .thanksCard p {
+      colour: rgba(0,0,0,0.65);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .thanksCard a {
+      colour: #111;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.25);
+      padding-bottom: 2px;
     }
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      html { scroll-behaviour: auto; }
       .bg { animation: none; opacity: 1; transform: none; }
       .btn, .btn::before, .btn span, .submitBtn { transition: none; }
     }
@@ -285,8 +329,14 @@
         <h2>Explore strategic partnership</h2>
         <p class="sub">Leave your details and we’ll get back to you.</p>
 
-        <!-- Netlify Forms (stored in Netlify, no email receipts unless you add notifications in Netlify) -->
-        <form name="europe-leads" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <!-- Netlify Forms (stored in Netlify). -->
+        <form
+          name="europe-leads"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          action="/thanks.html"
+        >
           <input type="hidden" name="form-name" value="europe-leads" />
 
           <!-- Honeypot field (spam trap). Keep hidden. -->
@@ -294,10 +344,7 @@
             <label>Don’t fill this out: <input name="bot-field" /></label>
           </p>
 
-          <!-- Netlify reCAPTCHA (turn on reCAPTCHA in Netlify UI after deploy) -->
-          <div class="full" data-netlify-recaptcha="true"></div>
-
-          <div class="grid" style="margin-top:14px;">
+          <div class="grid">
             <div>
               <label for="name">Name</label>
               <input id="name" name="name" type="text" autocomplete="name" required />
@@ -310,7 +357,13 @@
 
             <div class="full">
               <label for="linkedin">LinkedIn (optional)</label>
-              <input id="linkedin" name="linkedin" type="url" inputmode="url" placeholder="https://www.linkedin.com/in/..." />
+              <input
+                id="linkedin"
+                name="linkedin"
+                type="url"
+                inputmode="url"
+                placeholder="https://www.linkedin.com/in/..."
+              />
             </div>
 
             <div class="full">
@@ -319,17 +372,46 @@
             </div>
           </div>
 
+          <!-- CAPTCHA moved to just before submit -->
+          <div class="captchaRow">
+            <div data-netlify-recaptcha="true"></div>
+          </div>
+
           <div class="submitRow">
             <button class="submitBtn" type="submit">Submit</button>
+            <div class="fineprint">Submissions are stored in Netlify.</div>
           </div>
         </form>
       </div>
 
       <div class="disclaimer">
-        Europe.ie is an independent commercial platform and is not affiliated<br />
+        Europe.ie is an independent commercial platform and is not affiliated
         with, endorsed by, or representing the European Union, Irish Government, or any EU institution.
       </div>
     </div>
   </section>
+
+  <!--
+    Create a separate thanks.html file in your repo root with this content:
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Thanks</title>
+      <style> ... (or reuse the thanksPage styles above) ... </style>
+    </head>
+    <body>
+      <div class="thanksPage">
+        <div class="thanksCard">
+          <h1>Thanks — received.</h1>
+          <p>Your submission has been sent. We’ll be in touch.</p>
+          <a href="/index.html">Back to site</a>
+        </div>
+      </div>
+    </body>
+    </html>
+  -->
 </body>
 </html>
