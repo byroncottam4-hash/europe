@@ -27,16 +27,16 @@
       background: #000;
     }
 
-    /* Updated to use the single Dropbox image.
+    /* Updated to use the new Dropbox image.
        Note: Changed dl=0 to raw=1 to ensure the image loads directly.
     */
     .bg {
       position: absolute;
       inset: 0;
-      background-image: url("https://www.dropbox.com/scl/fi/zpsk12yu4frs0jcknxqhr/IMG_3994.jpeg?rlkey=popkredhaey6ese7bi9sne2zy&st=odfrrz35&raw=1");
+      background-image: url("https://www.dropbox.com/scl/fi/d8tg09z00mp8bhum4htmh/a-bridge-that-is-over-the-water-at-night-time-and-2026-01-07-07-16-57-utc-1.avif?rlkey=g54dyetynlpme5j1lturakrd4&st=iizzl4tb&raw=1");
       background-size: cover;
       background-position: center;
-      opacity: 1; /* Animation removed, opacity set to 1 */
+      opacity: 1;
       z-index: 1;
     }
 
@@ -149,7 +149,7 @@
       font-size: 1.6rem;
       font-weight: 650;
       letter-spacing: -0.01em;
-      margin-bottom: 25px; /* Increased slightly since subtext was removed */
+      margin-bottom: 25px;
       color: #0f0f10;
     }
 
@@ -214,9 +214,18 @@
       opacity: 0.92;
     }
 
-    /* This class handles the legal text. 
-       It matches the style of the bottom .disclaimer 
-    */
+    /* Error text styling */
+    .error-text {
+      color: #d93025;
+      font-size: 0.85rem;
+      margin-top: 6px;
+      display: none;
+    }
+    .input-error {
+      border-color: #d93025 !important;
+      background: #fffafa !important;
+    }
+
     .privacy-notice {
       margin-top: 16px;
       font-size: 0.85rem;
@@ -229,10 +238,10 @@
       font-size: 0.85rem;
       line-height: 1.45;
       color: rgba(0,0,0,0.50);
-      text-align: left; /* Kept left as per your previous code, though typically right aligned */
+      text-align: left;
     }
 
-    /* Success Message Styles (Hidden by default) */
+    /* Success Message Styles */
     #success-message {
       display: none;
       text-align: center;
@@ -302,6 +311,7 @@
               <div>
                 <label for="email">Business Email only</label>
                 <input id="email" name="email" type="email" autocomplete="email" required />
+                <div id="email-error" class="error-text">Business email only.</div>
               </div>
 
               <div class="full">
@@ -342,9 +352,34 @@
     const form = document.getElementById("lead-form");
     const formContainer = document.getElementById("form-container");
     const successMessage = document.getElementById("success-message");
+    
+    // Variables for email validation
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+    const blockedDomains = [
+      "@gmail.com", "@googlemail.com",
+      "@outlook.com", "@hotmail.com", "@live.com", "@msn.com",
+      "@yahoo.com", "@ymail.com", "@rocketmail.com"
+    ];
+
+    // Clear error message when user starts typing again
+    emailInput.addEventListener("input", () => {
+      emailInput.classList.remove("input-error");
+      emailError.style.display = "none";
+    });
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      // Check for blocked personal emails
+      const emailValue = emailInput.value.toLowerCase();
+      const isBlocked = blockedDomains.some(domain => emailValue.endsWith(domain));
+
+      if (isBlocked) {
+        emailInput.classList.add("input-error");
+        emailError.style.display = "block";
+        return; // Stop form submission
+      }
 
       const formData = new FormData(form);
 
